@@ -1,0 +1,49 @@
+// Tasks to run from VS Code (Terminal > Run Task...).
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Tests (gradlew test)",
+      "type": "shell",
+      "command": "./gradlew test",
+      "windows": {
+        "command": ".\\gradlew.bat test"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Division-by-zero analysis on a class",
+      "type": "shell",
+      "command": "./gradlew zeroAnalysis -PtargetClass=${input:zeroTarget}",
+      "windows": {
+        "command": ".\\gradlew.bat zeroAnalysis -PtargetClass=${input:zeroTarget}"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "zeroTarget",
+      "type": "pickString",
+      "description": "Class to analyze",
+      "options": [
+        "seminar.dataflow.targets.ZeroAnalysis1",
+        "seminar.dataflow.targets.ZeroAnalysis2",
+        "seminar.dataflow.targets.ZeroAnalysis3",
+        "seminar.dataflow.targets.ZeroAnalysis4",
+        "seminar.dataflow.targets.ZeroAnalysis5",
+        "seminar.dataflow.targets.ZeroAnalysis6",
+        "seminar.dataflow.targets.ZeroAnalysis7",
+        "seminar.dataflow.targets.ZeroAnalysis8",
+        "seminar.dataflow.targets.ZeroAnalysis9",
+        "seminar.dataflow.targets.ZeroAnalysis10",
+        "seminar.dataflow.targets.ZeroAnalysis11",
+        "seminar.dataflow.targets.ZeroAnalysis12"
+      ]
+    }
+  ]
+}
