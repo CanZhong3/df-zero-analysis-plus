@@ -63,9 +63,15 @@ public class ZeroAbstractState {
      */
     public ZeroAbstractState union(ZeroAbstractState another) {
         ZeroAbstractState result = new ZeroAbstractState();
-        // TODO: IMPLEMENT
-        throw new UnsupportedOperationException("Operation is not implemented yet.");
+        // First, copy this.map into result
+        this.map.forEach((var, value) ->
+                result.map.put(var, value));
+        // Second, merge the entries of another into the result
+        another.map.forEach((var, value) ->
+                result.map.merge(var, value, ZeroAbstractValue::merge));
+        return result;
     }
+
 
     /**
      * Clears the State.
